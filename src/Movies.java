@@ -20,11 +20,7 @@ public class Movies {
 
         if (movie == null) {
         movie = new Movie();
-        movie.chooseTitle();
-        movie.chooseDirector();
-        movie.chooseCountry();
-        movie.chooseYear();
-        movie.chooseMinutes();
+        movie.askQuestions();
         }
 
         else {
@@ -35,7 +31,6 @@ public class Movies {
         System.out.println(String.format("Year: %d", movie.year));
         System.out.println(String.format("Length: %d minutes", movie.minutes));
 
-
         while (true) {
             System.out.println("Would you like to make changes to this entry? [y/n]");
             Scanner scanner = new Scanner(System.in);
@@ -43,16 +38,16 @@ public class Movies {
             if (s.equals("y")) {
                 System.out.println("Which category would you like to update?  Title, Director, Origin, Year, or Length.");
                 Scanner scan = new Scanner(System.in);
-                String s1 = scan.nextLine();
-                if (s1.toLowerCase().equals("title")) {
+                String s1 = scan.nextLine().toLowerCase();
+                if (s1.equals("title")) {
                     movie.chooseTitle();
-                } else if (s1.toLowerCase().equals("director")) {
+                } else if (s1.equals("director")) {
                     movie.chooseDirector();
-                } else if (s1.toLowerCase().equals("origin")) {
+                } else if (s1.equals("origin")) {
                     movie.chooseCountry();
-                } else if (s1.toLowerCase().equals("year")) {
+                } else if (s1.equals("year")) {
                     movie.chooseYear();
-                } else if (s1.toLowerCase().equals("length")) {
+                } else if (s1.equals("length")) {
                     movie.chooseMinutes();
                 }
             } else {
@@ -75,7 +70,7 @@ public class Movies {
             fw.write(contentToSave);
             fw.close();
         } catch (Exception e) {
-
+            System.out.println("Save Failed!");
         }
     }//static method save entry
 

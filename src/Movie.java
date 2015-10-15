@@ -59,6 +59,14 @@ public class Movie {
         minutes = newMinNum;
     }
 
+    void askQuestions() {
+        chooseTitle() ;
+        chooseDirector();
+        chooseCountry();
+        chooseYear();
+        chooseMinutes();
+    }
+
 
     public String getTitle() {
         return title;
